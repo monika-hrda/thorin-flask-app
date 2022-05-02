@@ -10,8 +10,19 @@ app = Flask(__name__)
 
 
 @app.route("/")   # decorator; @ = pie-notation
-def index():
+def index():     # this function is also called a view
     return render_template("index.html")
+
+
+# bind the path of the decorator to a view called about()
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 
 if __name__ == "__main__":  # 'main' = name of the default module in Python
