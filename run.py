@@ -17,7 +17,7 @@ def index():     # this function is also called a view
 # bind the path of the decorator to a view called about()
 @app.route("/about")
 def about():
-    return render_template("about.html", page_title="About")
+    return render_template("about.html", page_title="About", list_of_numbers=[1, 2, 3])
 
 
 @app.route("/contact")
