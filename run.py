@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template
 
 
@@ -17,7 +18,10 @@ def index():     # this function is also called a view
 # bind the path of the decorator to a view called about()
 @app.route("/about")
 def about():
-    return render_template("about.html", page_title="About", list_of_numbers=[1, 2, 3])
+    data = []
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("about.html", page_title="About", company=data)
 
 
 @app.route("/contact")
